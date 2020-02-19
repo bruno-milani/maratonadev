@@ -19,15 +19,16 @@
     <!-- São configuraçoes da minha página -->
     <title>Doe vida! Doe Sangue!</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/public/favicon.ico">
 </head>
 
 <body>
     <!-- Aqui vem todo o conteudo visivel para o usuario, dentro 
         de certa página-->
     <header>
-        <img class="logo" src="logo.png" alt="DOE">
+        <img class="logo" src="/logo.png" alt="DOE">
         <h2>A sua doação importa</h2>
         <p>Até 3 vidas com 1 doação</p>
         <p>Mais de 38.000 doações são necessarias todos os dias!</p>
@@ -38,7 +39,7 @@
 
     <section class="form hide">
         <h2>Entre na lista de doadores</h2>
-        <form action="/">
+        <form action="/" method="POST">
             <input type="text" name="name" placeholder="Nome Completo">
             <input type="text" name="email" placeholder="Email">
             <input type="text" name="blood" placeholder="Tipo sanguineo">
@@ -50,27 +51,17 @@
         <h2>Últimos <span>doadores</span></h2>
 
         <section class="donors">
+            {% for donor in donors %}
             <div class="donor">
-                <div class="blood">AB+</div>
-                <p>Diego Fernandes</p>
+                <div class="blood">{{donor.blood}}</div>
+                <p>{{donor.name}}</p>
             </div>
-            <div class="donor">
-                <div class="blood">B+</div>
-                <p>Cleiton Souza</p>
-            </div>
-            <div class="donor">
-                <div class="blood">A+</div>
-                <p>Robson Marques</p>
-            </div>
-            <div class="donor">
-                <div class="blood">O+</div>
-                <p>Mayk Brito</p>
-            </div>
+            {%endfor%}
         </section>
     </main>
     <footer>Com ❤ Rocketseat</footer>
 
-    <script src="scripts.js"></script>
+    <script src="/scripts.js"></script>
 </body>
 
 </html>
